@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="max-w-md w-full bg-white shadow-lg rounded-lg p-8">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">Register</h2>
+    
+    <% if (errors && errors.length > 0) { %>
+    <div class="bg-red-500 text-white p-4 rounded mb-6">
+      <% errors.forEach(error => { %>
+        <p><%= error.msg %></p>
+      <% }) %>
+    </div>
+    <% } %>
+    
+    <form action="/register" method="POST">
+      <div class="mb-4">
+        <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+        <input type="text" id="username" name="username" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      </div>
+      
+      <div class="mb-4">
+        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+        <input type="password" id="password" name="password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      </div>
+      
+      <div class="mb-6">
+        <label for="password2" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+        <input type="password" id="password2" name="password2" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+      </div>
+      
+      <button type="submit" class="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">Register</button>
+    </form>
+    
+    <p class="mt-4 text-sm text-gray-600">Already have an account? <a href="/login" class="text-indigo-600 hover:underline">Login here</a></p>
+  </div>
+</body>
+</html>
