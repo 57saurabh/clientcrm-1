@@ -7,6 +7,7 @@ const queryRoutes = require('./routes/queryRoutes');
 const app = express();
 app.use(express.json());
 app.use('/api/auth', authRoutes);
+
 app.use('/api/queries', queryRoutes);
 
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })

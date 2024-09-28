@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-  username: { type: String, required: true },
+  email: { type: String, required: true, unique: true }, // Change from username to email
   password: { type: String, required: true },
-  name: { type: String, required: true }, // Name of the user
-  companyName: { type: String, required: true }, // Company name
-  website: { type: String, required: true } // Website of the user
+  name: { type: String, required: true },
+  companyName: { type: String, required: true },
+  website: { type: String, required: true },
+  token: { type: String } // Token field
 });
 
 module.exports = mongoose.model('User', UserSchema);
